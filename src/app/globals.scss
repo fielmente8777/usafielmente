@@ -84,11 +84,15 @@ body {
   margin-inline: auto;
 
   @media (width<=1280px) {
-    padding: 0 1.7rem;
+    padding: 0 1rem;
   }
 }
 
-
+.box_shadow2 {
+  border-radius: 0.5rem;
+  background: #fff;
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+}
 
 .blog-d-container a {
   color: rgb(68, 68, 246);

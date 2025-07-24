@@ -49,6 +49,7 @@ function OurClients({
                 slidesPerView={1}
                 grid={{
                   rows: 2,
+                  fill: "row",
                 }}
                 // loop={true}
                 speed={900}
@@ -58,17 +59,9 @@ function OurClients({
                 breakpoints={{
                   768: {
                     slidesPerView: 3,
-                    grid: {
-                      rows: 2,
-                      fill: "row",
-                    },
                   },
                   1024: {
                     slidesPerView: 4,
-                    grid: {
-                      rows: 2,
-                      fill: "row",
-                    },
                   },
                 }}
                 className="mySwiper"

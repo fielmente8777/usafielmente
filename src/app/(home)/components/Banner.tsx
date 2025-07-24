@@ -2,9 +2,9 @@
 import Container from "./Container";
 import Section from "./Section";
 import { BannerProps } from "../types/index";
-import PopupForm from "./PopupForm";
 import { useState } from "react";
 import Image from "next/image";
+import PopupForm from "@/components/PopupForm";
 
 const Banner: React.FC<BannerProps> = ({ title, heading, link, img }) => {
   const [showModal, setShowModal] = useState(false);

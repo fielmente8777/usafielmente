@@ -13,9 +13,9 @@ import SectionHeading from "./SectionHeading";
 import Link from "next/link";
 import { title } from "process";
 import React, { useState } from "react";
-import PopupForm from "./PopupForm";
 import Container from "./Container";
 import Section from "./Section";
+import PopupForm from "@/components/PopupForm";
 
 export interface OurServiceProsData {
   title: string;

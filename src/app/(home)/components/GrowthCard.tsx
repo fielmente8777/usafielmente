@@ -5,7 +5,7 @@ import Section from "./Section";
 import Link from "next/link";
 import { GrowthCardProps } from "../types";
 import { useState } from "react";
-import PopupForm from "./PopupForm";
+import PopupForm from "@/components/PopupForm";
 
 const GrowthCard: React.FC<GrowthCardProps> = ({
   img,
@@ -17,7 +17,7 @@ const GrowthCard: React.FC<GrowthCardProps> = ({
   return (
     <Section>
       <Container>
-        <div className="max-w-7xl mx-auto relative w-full aspect-[4/1.7]">
+        <div className="max-w-7xl mx-auto relative w-full md:aspect-[4/1.7] aspect-square">
           <Image
             src={img}
             alt="growth-card"
@@ -26,7 +26,7 @@ const GrowthCard: React.FC<GrowthCardProps> = ({
           />
           <div className="absolute top-0 left-0 w-full h-full bg-[#000000]/30">
             <div className="flex flex-col items-center gap-6 justify-center h-full text-white">
-              <h2 className="lg:text-[2.8rem]/[3.5rem] text-2xl  font-bold text-white">
+              <h2 className="lg:text-[2.8rem]/[3.5rem] text-2xl text-center font-bold text-white">
                 {title}
               </h2>
               <p className="text-white lg:text-2xl text-lg max-w-4xl lg:px-10 text-center">

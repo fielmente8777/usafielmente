@@ -4,11 +4,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Logo from "../../../public/images/footer-fielmente.webp";
 import { usePathname } from "next/navigation";
-import PopupForm from "@/app/(home)/components/PopupForm";
+import PopupForm from "../PopupForm";
 
 
 function Footer2() {
   const pathname = usePathname();
+  const [showModal, setShowModal] = useState(false);
 
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -69,8 +70,11 @@ function Footer2() {
     },
   ];
 
+  if (pathname === "/thank-you/") {
+    return null;
+  }
+
   // const currentYear = new Date().getFullYear();
-  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <footer className="bg-gray-100 pt-8 pb-4">
