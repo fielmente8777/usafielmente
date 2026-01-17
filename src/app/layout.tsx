@@ -4,12 +4,13 @@ import NavBar from "@/components/Header/NavBar";
 import Whatsapp from "@/components/WhatsApp";
 import Call from "@/components/Call";
 import Footer2 from "@/components/Footer/Footer2";
+import Salesiq from "@/components/zohochatbot/Salesiq";
 
 export const metadata: Metadata = {
   title: "Hotel and restaurant marketing company in USA | fielmente",
   description:
     "We're the best hospitality marketing agency in India serving hotels, resorts restaurants, and cloud kitchens for more than 10 years.",
-  keywords:"",
+  keywords: "",
   alternates: {
     canonical: "https://https://usa.fielmente.com/",
   },
@@ -43,7 +44,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -51,6 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Salesiq />
+      </head>
       <body suppressHydrationWarning={true}>
         <NavBar />
         {children}

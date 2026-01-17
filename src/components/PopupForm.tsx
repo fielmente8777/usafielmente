@@ -24,7 +24,7 @@ const PopupForm = ({
         setShowModal(true);
         setHasShown(true);
         document.body.style.overflow = "hidden";
-      }, 30000); // Show after 30 seconds
+      }, 60000); // Show after 30 seconds
     }
 
     return () => {
@@ -64,7 +64,7 @@ const PopupForm = ({
             </button>
             <div className="relative w-full md:aspect-[4/4] max-md:hidden">
               <Image
-                src={"/popup1.jpg"}
+                src={"/popup2.jpg"}
                 alt="Hospitality Marketing"
                 fill
                 className="object-cover"
