@@ -3,12 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "../../../public/images/logo.webp";
 import { useState } from "react";
+import { contacts } from "@/utils/contact";
 
 const LandingHeader = () => {
   const [hover, setHover] = useState(false);
   return (
-    <header className="py-3">
-      <nav className="max-width flex justify-between">
+    <header className="py-3 fixed top-0 left-0 right-0 z-[999] bg-white">
+      <nav className="max-width flex justify-between ">
         <div className="relative max-w-[164px] w-full lg:aspect-[4/1.3] aspect-[4/1.7]">
           <Image
             src={Logo}
@@ -28,8 +29,8 @@ const LandingHeader = () => {
             <OutlineMailIcon />
             sachin@fielmente.com
           </Link>
-          <Link
-            href={"tel:+919501868775 "}
+          {/* <Link
+            href={"tel:+918178939108 "}
             className="flex items-center hover:text-white hover:bg-orange-500 text-orange-500 text-lg border border-[var(--primary-orange)] rounded-lg md:px-5 px-3 md:py-3 "
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
@@ -41,12 +42,12 @@ const LandingHeader = () => {
               height={25}
             />{" "}
             Call Us
-          </Link>
+          </Link> */}
         </div>
 
         {/* mobile view */}
         <div className="lg:hidden flex items-center">
-          <Link href={"tel:+919501868775 "} className="flex items-center">
+          <Link href={`tel:${contacts.phone[0]}`} className="flex items-center">
             {" "}
             <span className="sr-only">call icon</span>
             <OutlinePhoneIcon width={40} height={45} />
