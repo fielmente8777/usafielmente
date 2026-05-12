@@ -27,7 +27,7 @@ const page = () => {
     title: "We are the Best Hotel Marketing Company in the",
     span: "USA",
     description:
-      "Welcome to Fielmente – Your Top Choice for Revenue Management and Hotel Digital Marketing in the USA. Elevate your hotel business with our expert services. As a leading Revenue Management company globally, Hospitality Minds specializes in tailored Hotel Digital Marketing solutions designed for success in the dynamic US market.",
+      "Welcome to Fielmente – Your Top Choice for Revenue Management and Hotel Digital Marketing in the USA. Elevate your hotel business with our expert services. As a leading Revenue Management company globally, Fielmente specializes in tailored Hotel Digital Marketing solutions designed for success in the dynamic US market.",
     img: "/images/usa.webp",
     description2: [
       "Our certified experts, recognized as a premier digital marketing agency in the USA, bring extensive experience to ensure your hotel thrives in the competitive landscape. Benefit from meticulous OTA management, advanced Channel Manager services for hotels, and comprehensive Digital Marketing strategies covering SEO, SEM, and Online Reputation Management. We also offer captivating website development and detailed digital audits to give you a competitive edge.",
@@ -35,7 +35,7 @@ const page = () => {
     ],
   };
   return (
-    <main className="bg-white">
+    <main className="bg-white lg:mt-6">
       <Banner {...bannerData} />
       <AboutUs {...aboutUsData} />
       <OurServices />
