@@ -4,15 +4,23 @@ import NavBar from "@/components/Header/NavBar";
 import Whatsapp from "@/components/WhatsApp";
 import Salesiq from "@/components/zohochatbot/Salesiq";
 import type { Metadata } from "next";
+import { COUNTRY_HREFLANG } from "@/lib/hreflang";
 import "./globals.scss";
 
+const SITE = "https://usa.fielmente.com";
+const TITLE = "Hotel & Restaurant Marketing Company in the USA | Fielmente";
+const DESCRIPTION =
+  "Hotel and restaurant marketing in the USA: SEO, Google Ads, social media, Google Business Profile and OTA management that grow your direct bookings.";
+
 export const metadata: Metadata = {
-  title: "Hotel and restaurant marketing company in USA | fielmente",
-  description:
-    "We're the best hospitality marketing agency in India serving hotels, resorts restaurants, and cloud kitchens for more than 10 years.",
-  keywords: "",
+  metadataBase: new URL(SITE),
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: {
-    canonical: "https://https://usa.fielmente.com/",
+    canonical: `${SITE}/`,
+    // Same hreflang set as the country sites (italy.fielmente.com, …), which list this site as en-US.
+    // Hreflang only counts when every page in the set links back, so this site must list them too.
+    languages: COUNTRY_HREFLANG,
   },
   robots: {
     index: true,
@@ -25,22 +33,28 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  authors: [{ name: "Fielmente", url: "https://https://usa.fielmente.com/" }],
+  authors: [{ name: "Fielmente", url: `${SITE}/` }],
   openGraph: {
-    title: "Hotel and restaurant marketing company in USA | fielmente",
-    description:
-      "We're the best hospitality marketing agency in India serving hotels, resorts restaurants, and cloud kitchens for more than 10 years.",
-    url: "https://https://usa.fielmente.com/",
-    siteName: "usa.Fielmente",
-    locale: "en_IN",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE}/`,
+    siteName: "Fielmente",
+    locale: "en_US",
     type: "website",
-
     images: [
       {
-        url: "https://https://usa.fielmente.com/images/Fielmente-og.png",
+        url: "/images/fielmente-usa-og.jpg",
         width: 1200,
+        height: 630,
+        alt: "Hotel concierge with a guest's suitcase at a hotel reception",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/images/fielmente-usa-og.jpg"],
   },
 };
 
