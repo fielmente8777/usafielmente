@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/fielmente-usa-og.jpg",
+        url: `${SITE}/images/fielmente-usa-og.jpg`,
         width: 1200,
         height: 630,
         alt: "Hotel concierge with a guest's suitcase at a hotel reception",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/images/fielmente-usa-og.jpg"],
+    images: [`${SITE}/images/fielmente-usa-og.jpg`],
   },
 };
 
