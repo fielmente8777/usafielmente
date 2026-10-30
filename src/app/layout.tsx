@@ -1,4 +1,3 @@
-import Call from "@/components/Call";
 import Footer2 from "@/components/Footer/Footer2";
 import NavBar from "@/components/Header/NavBar";
 import Whatsapp from "@/components/WhatsApp";
@@ -73,7 +72,6 @@ export default function RootLayout({
         {children}
         <Footer2 />
         <Whatsapp />
-        {/* <Call /> */}
       </body>
     </html>
   );
