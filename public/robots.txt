@@ -1,5 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
 
-Sitemap: https://www.fielmente.com/sitemap.xml
+Sitemap: https://usa.fielmente.com/sitemap.xml
