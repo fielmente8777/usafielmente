@@ -3,11 +3,12 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { LEAD_SUBMITTED_EVENT, markLeadPromptShown } from "@/lib/leadPrompt";
 
-export default function LeadDialog({ open, onClose, children, maxWidth = 768 }: {
+export default function LeadDialog({ open, onClose, children, maxWidth = 768, closeOnSubmit = true }: {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
   maxWidth?: number;
+  closeOnSubmit?: boolean;
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -18,13 +19,13 @@ export default function LeadDialog({ open, onClose, children, maxWidth = 768 }: 
     markLeadPromptShown();
     if (!dialog.open) dialog.showModal();
     document.body.style.overflow = "hidden";
-    window.addEventListener(LEAD_SUBMITTED_EVENT, onClose);
+    if (closeOnSubmit) window.addEventListener(LEAD_SUBMITTED_EVENT, onClose);
     return () => {
       window.removeEventListener(LEAD_SUBMITTED_EVENT, onClose);
       if (dialog.open) dialog.close();
       document.body.style.overflow = previousOverflow;
     };
-  }, [open, onClose]);
+  }, [open, onClose, closeOnSubmit]);
 
   return (
     <>

@@ -45,7 +45,7 @@ export function isLeadThankYouPage(path: string) {
 }
 
 /** One minute of visible browsing, or a desktop pointer leaving at the top. */
-export function startLeadPrompt(open: () => void) {
+export function startLeadPrompt(open: (trigger: "timer" | "exit") => void) {
   if (leadPromptSuppressed()) return () => {};
   let visibleMs = 0;
   let lastTick = Date.now();
@@ -59,7 +59,7 @@ export function startLeadPrompt(open: () => void) {
     window.removeEventListener(LEAD_SUBMITTED_EVENT, stop);
   }
 
-  function tryOpen() {
+  function tryOpen(trigger: "timer" | "exit") {
     if (stopped) return;
     if (leadPromptSuppressed()) { stop(); return; }
     if (document.visibilityState !== "visible" || isLeadThankYouPage(window.location.pathname)) return;
@@ -68,13 +68,13 @@ export function startLeadPrompt(open: () => void) {
     if (document.querySelector("dialog[open], [aria-modal='true']")) return;
     markLeadPromptShown();
     stop();
-    open();
+    open(trigger);
   }
 
   function exitIntent(event: MouseEvent) {
     if (visibleMs < 10_000 || event.relatedTarget !== null || event.clientY > 0) return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    tryOpen();
+    tryOpen("exit");
   }
 
   function visibilityChanged() { lastTick = Date.now(); }
@@ -83,7 +83,7 @@ export function startLeadPrompt(open: () => void) {
     const now = Date.now();
     if (document.visibilityState === "visible") visibleMs += Math.max(0, now - lastTick);
     lastTick = now;
-    if (visibleMs >= 60_000) tryOpen();
+    if (visibleMs >= 60_000) tryOpen("timer");
   }, 1000);
   document.addEventListener("mouseout", exitIntent);
   document.addEventListener("visibilitychange", visibilityChanged);
