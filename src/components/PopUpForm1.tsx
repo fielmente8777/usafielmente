@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 
 import axios from "axios";
+import { markLeadSubmitted } from "@/lib/leadPrompt";
 import React, { useState } from "react";
 import { countries } from "@/utils/countryCode";
 import {
@@ -20,17 +21,20 @@ const PopUpForm1 = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userMessage, setUserMessage] = useState("");
   const [userPhone, setUserPhone] = useState("");
-  const [countryCode, setCountryCode] = useState("+91"); // Default country code
+  const [countryCode, setCountryCode] = useState("+1"); // Default country code
   const [formRes, setFormRes] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const minDigits = countryCode === "+91" ? 10 : 7;
+  const maxDigits = countryCode === "+91" ? 10 : 15;
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
-    if (value.length <= 10) {
+    if (value.length <= maxDigits) {
       setUserPhone(value);
-      setErrorMessage(value.length < 10 ? "Please enter a valid number" : "");
+      setErrorMessage(value.length < minDigits ? "Please enter a valid number" : "");
     }
   };
 
@@ -44,10 +48,8 @@ const PopUpForm1 = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormRes(true);
-
-    if (userPhone.length !== 10) {
-      setErrorMessage("Phone number must be exactly 10 digits.");
+    if (userPhone.length < minDigits || userPhone.length > maxDigits) {
+      setErrorMessage(countryCode === "+91" ? "Phone number must be exactly 10 digits." : "Please enter a valid phone number.");
       return;
     }
 
@@ -56,6 +58,7 @@ const PopUpForm1 = () => {
       return;
     }
 
+    setFormRes(true);
     try {
       const { data } = await axios.post(
         `https://nexon.eazotel.com/eazotel/addcontacts`,
@@ -83,12 +86,13 @@ const PopUpForm1 = () => {
 
       //   if (data.success) {
       if (data.Status) {
+        markLeadSubmitted();
         setFormRes(true);
         setUserName("");
         setUserEmail("");
         setUserMessage("");
         setUserPhone("");
-        setCountryCode("+91"); // Reset country code
+        setCountryCode("+1"); // Reset country code
         setFormRes(false);
         // router.push(`/thank-you/`);
         window.open("/thank-you/", "_blank");
@@ -98,7 +102,9 @@ const PopUpForm1 = () => {
         alert("Something went wrong!");
       }
     } catch (error) {
-      console.log(error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setFormRes(false);
     }
   };
 
@@ -291,7 +297,7 @@ const PopUpForm1 = () => {
         </div>
       ))}
 
-      <button className="w-full text-center bg-orange-primary text-white justify-center border-orange-primary text-md px-8 py-3 md:text-lg font-semibold rounded-md hover:bg-white hover:text-orange-primary duration-300 active:scale-75 hover:scale-105 border border-blue-primary">
+      <button type="submit" disabled={formRes} className="w-full text-center bg-orange-primary text-white justify-center border-orange-primary text-md px-8 py-3 md:text-lg font-semibold rounded-md hover:bg-white hover:text-orange-primary duration-300 active:scale-75 hover:scale-105 border border-blue-primary">
         {formRes ? "Loading...." : "Get a Free Consultation"}
       </button>
 
