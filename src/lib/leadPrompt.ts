@@ -64,8 +64,8 @@ export function startLeadPrompt(open: () => void) {
     if (leadPromptSuppressed()) { stop(); return; }
     if (document.visibilityState !== "visible" || isLeadThankYouPage(window.location.pathname)) return;
     // Let visitors finish an existing form or chat before prompting them.
-    if (document.activeElement?.matches("input, textarea, select, [contenteditable='true']")) return;
-    if (document.querySelector("dialog[open], [aria-modal='true'], #zsiq_chat_wrap.chat-iframe-open")) return;
+    if (document.activeElement?.matches("input, textarea, select, iframe, [contenteditable='true']")) return;
+    if (document.querySelector("dialog[open], [aria-modal='true']")) return;
     markLeadPromptShown();
     stop();
     open();
