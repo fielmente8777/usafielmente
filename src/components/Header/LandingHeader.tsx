@@ -20,6 +20,8 @@ const LandingHeader = () => {
           />
         </div>
 
+        <Link href="https://fielmente.com/hotel-marketing-agency-usa/locations/" className="self-center rounded-lg px-3 py-3 text-center text-sm font-semibold text-blue-dark hover:text-orange-500">US states &amp; cities</Link>
+
         {/* desktop view */}
         <div className="hidden lg:flex gap-6 items-center">
           <Link

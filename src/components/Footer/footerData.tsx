@@ -36,6 +36,14 @@ export const landingFooterData: FooterLinksPropstype = {
       title: "Contact",
       icon: <FillPhoneIcon />,
       listOfLinks: [
+        {
+          label: "US states and cities",
+          href: "https://fielmente.com/hotel-marketing-agency-usa/locations/",
+        },
+        {
+          label: "Our USA marketing approach",
+          href: "https://fielmente.com/hotel-marketing-agency-usa/",
+        },
         ...contacts.phone.map((phone) => ({
           label: phone,
           href: `tel:${phone}`,
