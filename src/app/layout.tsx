@@ -3,7 +3,6 @@ import NavBar from "@/components/Header/NavBar";
 import Whatsapp from "@/components/WhatsApp";
 import type { Metadata } from "next";
 import GlobalLeadPopup from "@/components/GlobalLeadPopup";
-import { COUNTRY_HREFLANG } from "@/lib/hreflang";
 import "./globals.scss";
 
 const SITE = "https://usa.fielmente.com";
@@ -15,22 +14,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: TITLE,
   description: DESCRIPTION,
-  alternates: {
-    canonical: `${SITE}/`,
-    // Same hreflang set as the country sites (italy.fielmente.com, …), which list this site as en-US.
-    // Hreflang only counts when every page in the set links back, so this site must list them too.
-    languages: COUNTRY_HREFLANG,
-  },
+  // fielmente.com/hotel-marketing-agency-usa/ is the page meant to rank for US searches: it carries the
+  // main domain's authority. This site targets the same searches, so when both were indexed Google kept
+  // swapping them. It stays live for visitors and ads but is kept out of Google, and is no longer in the
+  // country sites' hreflang set (they drop it in the same change).
+  alternates: { canonical: `${SITE}/` },
   robots: {
-    index: true,
+    index: false,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: false, follow: true },
   },
   authors: [{ name: "Fielmente", url: `${SITE}/` }],
   openGraph: {

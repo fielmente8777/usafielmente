@@ -1,5 +1,5 @@
 User-agent: *
+# Crawling stays allowed so Google can see the page's noindex. The page that ranks for US searches is
+# fielmente.com/hotel-marketing-agency-usa/.
 Allow: /
 Disallow: /api/
-
-Sitemap: https://usa.fielmente.com/sitemap.xml
