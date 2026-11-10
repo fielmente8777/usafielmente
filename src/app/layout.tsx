@@ -3,7 +3,6 @@ import NavBar from "@/components/Header/NavBar";
 import Whatsapp from "@/components/WhatsApp";
 import type { Metadata } from "next";
 import GlobalLeadPopup from "@/components/GlobalLeadPopup";
-import { COUNTRY_HREFLANG } from "@/lib/hreflang";
 import "./globals.scss";
 
 const SITE = "https://usa.fielmente.com";
@@ -15,17 +14,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: TITLE,
   description: DESCRIPTION,
-  alternates: {
-    canonical: `${SITE}/`,
-    // Same hreflang set as the country sites (italy.fielmente.com, …), which list this site as en-US.
-    // Hreflang only counts when every page in the set links back, so this site must list them too.
-    languages: COUNTRY_HREFLANG,
-  },
+  alternates: { canonical: `${SITE}/` },
+  // Kept out of Google (SEO review, Nov 2026): a one-page market site that leads to the same enquiry form as
+  // fielmente.com/hotel-marketing-agency-usa/, which is the page meant to rank for US searches. Live for ads and outreach.
   robots: {
-    index: true,
+    index: false,
     follow: true,
     googleBot: {
-      index: true,
+      index: false,
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
