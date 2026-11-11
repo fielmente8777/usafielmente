@@ -37,10 +37,6 @@ export const landingFooterData: FooterLinksPropstype = {
       icon: <FillPhoneIcon />,
       listOfLinks: [
         {
-          label: "US states and cities",
-          href: "https://fielmente.com/hotel-marketing-agency-usa/locations/",
-        },
-        {
           label: "Our USA marketing approach",
           href: "https://fielmente.com/hotel-marketing-agency-usa/",
         },

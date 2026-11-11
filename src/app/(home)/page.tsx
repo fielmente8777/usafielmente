@@ -7,7 +7,6 @@ import {
 } from "./components";
 import { OurServices } from "./components";
 import { BannerProps, DataType, GrowthCardProps } from "./types";
-import USServiceLocations from "@/components/USServiceLocations";
 
 const page = () => {
   const bannerData: BannerProps = {
@@ -40,7 +39,6 @@ const page = () => {
       <Banner {...bannerData} />
       <AboutUs {...aboutUsData} />
       <OurServices />
-      <USServiceLocations />
       <OurClients SHeading />
       <GrowthCard {...growthcardData} />
       <OurOTAPartners />
