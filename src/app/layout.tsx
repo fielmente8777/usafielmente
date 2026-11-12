@@ -1,6 +1,7 @@
 import Footer2 from "@/components/Footer/Footer2";
 import NavBar from "@/components/Header/NavBar";
 import Whatsapp from "@/components/WhatsApp";
+import Salesiq from "@/components/zohochatbot/Salesiq";
 import type { Metadata } from "next";
 import GlobalLeadPopup from "@/components/GlobalLeadPopup";
 import "./globals.scss";
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Salesiq />
       </head>
       <body suppressHydrationWarning={true}>
         <NavBar />
