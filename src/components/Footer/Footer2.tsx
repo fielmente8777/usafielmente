@@ -54,7 +54,7 @@ function Footer2() {
   const socialLink: linkTypeProps[] = [
     {
       title: "Instagram",
-      href: "https://www.instagram.com/fielmente_hospitality/?hl=en",
+      href: "https://www.instagram.com/fielmente_marketing_agency/",
     },
     {
       title: "Facebook",
