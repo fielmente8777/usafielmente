@@ -6,6 +6,7 @@ import {
   OurOTAPartners,
 } from "./components";
 import { OurServices } from "./components";
+import EazotelAppCTA from "@/components/EazotelAppCTA";
 import { BannerProps, DataType, GrowthCardProps } from "./types";
 
 const page = () => {
@@ -39,6 +40,7 @@ const page = () => {
       <Banner {...bannerData} />
       <AboutUs {...aboutUsData} />
       <OurServices />
+      <EazotelAppCTA />
       <OurClients SHeading />
       <GrowthCard {...growthcardData} />
       <OurOTAPartners />
