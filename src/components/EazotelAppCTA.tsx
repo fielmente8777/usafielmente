@@ -14,13 +14,13 @@ export default function EazotelAppCTA() {
       <div className="mx-auto grid w-full max-w-[1240px] items-center gap-9 px-5 md:grid-cols-2 md:gap-12 md:px-8">
         <div>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.13em] text-[#FFB594]">
-            <FiSmartphone size={16} aria-hidden="true" /> Fielmente recommends Eazotel
+            <FiSmartphone size={16} aria-hidden="true" /> Fielmente · Part of Eazotel
           </p>
           <h2 id="eazotel-download-heading" className="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-white md:text-4xl">
             Take your hotel business <span className="text-[#FF9967]">wherever you go.</span>
           </h2>
           <p className="mt-5 max-w-xl text-base leading-7 text-white/80">
-            Download the Eazotel app to stay connected with guest enquiries and follow-ups while on the move. Hospitality technology from the Eazotel platform, featured by Fielmente.
+            Download the Eazotel app to stay connected with guest enquiries and follow-ups while on the move. Fielmente is part of Eazotel's hospitality technology ecosystem.
           </p>
           <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-[#E4E9FC] sm:text-sm">
             <span className="rounded-full border border-white/20 px-3 py-2">Guest enquiries</span>
