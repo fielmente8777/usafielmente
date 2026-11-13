@@ -20,7 +20,7 @@ export default function EazotelAppCTA() {
             Take your hotel business <span className="text-[#FF9967]">wherever you go.</span>
           </h2>
           <p className="mt-5 max-w-xl text-base leading-7 text-white/80">
-            Download the Eazotel app to stay connected with guest enquiries and follow-ups while on the move. Fielmente is part of Eazotel's hospitality technology ecosystem.
+            Download the Eazotel app to stay connected with guest enquiries and follow-ups while on the move. Fielmente is part of the Eazotel hospitality technology ecosystem.
           </p>
           <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-[#E4E9FC] sm:text-sm">
             <span className="rounded-full border border-white/20 px-3 py-2">Guest enquiries</span>
